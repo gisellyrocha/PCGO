@@ -59,7 +59,7 @@ const Work = () => {
             <div>
               <div
                 className={css.circle}
-                style={{ background: '#F9F9E0' }}
+                style={{ background: '#ffd700' }}
               ></div>
             </div>
             <div>

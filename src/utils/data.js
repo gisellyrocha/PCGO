@@ -14,7 +14,7 @@ export const projectExperience = [
   {
     name: 'Especialista em Harmonização Orofacial.',
     icon: MdOutlineBuildCircle,
-    bg: '#F9F9E0',
+    bg: '#ffd700',
   },
   {
     name: 'Harmonização Orofacial e Odontologia.',
@@ -34,20 +34,20 @@ export const workExp = [
     place: 'Orofacial',
     tenure:
       'A visual desginer dsesign for a variety of platoforms, may include internet and internet sites, games, movies, kioasks and wearbies.',
-    role: 'Visual Designer',
+    role: 'Aplicação de Botox',
     detail:
       'A visual desginer dsesign for a variety of platoforms, may include internet and internet sites, games, movies, kioasks and wearbies. In short, they create the concepts',
   },
   {
-    place: 'New Man Services',
+    place: 'Preenchimento Labial',
     tenure:
       'A visual desginer dsesign for a variety of platoforms, may include internet and internet sites, games, movies, kioasks and wearbies.',
-    role: 'UI/UX Designer',
+    role: 'Rejuvenescimento da Face',
     detail:
       'A visual desginer dsesign for a variety of platoforms, may include internet and internet sites, games, movies, kioasks and wearbies. In short, they create the concepts',
   },
   {
-    place: 'Rejuvenescimento Facial',
+    place: 'Harmonizaçao Orofacial',
     tenure:
       'A visual desginer dsesign for a variety of platoforms, may include internet and internet sites, games, movies, kioasks and wearbies.',
     role: 'Especialista em Harmonização Facial',
