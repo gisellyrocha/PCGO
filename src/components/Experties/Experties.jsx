@@ -28,7 +28,6 @@ const Experties = () => {
                 </div>
                 <div>
                   <span>{exp.name}</span>
-                  {/* <span className="secondaryText">{exp.ano} 2001</span> */}
                 </div>
               </motion.div>
             );
@@ -43,17 +42,6 @@ const Experties = () => {
               {paragraph}
             </span>
           ))}
-
-          {/* <div className={`flexCenter ${css.stats}`}>
-            <div className={`flexCenter ${css.stat}`}>
-              <span className="primaryText">285+</span>
-              <span className="secondaryText">Atendimentos Concluídos</span>
-            </div>
-            <div className={`flexCenter ${css.stat}`}>
-              <span className="primaryText">100%</span>
-              <span className="secondaryText">Clientes Satisfeitos</span>
-            </div>
-          </div> */}
         </motion.div>
       </motion.div>
     </section>

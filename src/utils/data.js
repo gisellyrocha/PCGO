@@ -7,14 +7,19 @@ export const projectExperience = [
     bg: '#8ACDD7',
   },
   {
-    name: 'Pós-Graduada em Harmonização em 2015.',
+    name: 'Pós-Graduada em Endodontista 2015.',
     icon: HiOfficeBuilding,
     bg: '#FF90BC',
   },
   {
-    name: 'Pós-Graduada em Ortodontia em 2018.',
+    name: 'Especialista em Harmonização Orofacial.',
     icon: MdOutlineBuildCircle,
     bg: '#F9F9E0',
+  },
+  {
+    name: 'Harmonização Orofacial e Odontologia.',
+    icon: MdOutlineBuildCircle,
+    bg: '#8ACDD7',
   },
 ];
 
@@ -26,23 +31,26 @@ export const WhatDoIHelp = [
 
 export const workExp = [
   {
-    place: 'Self-Employed, Brisbane',
-    tenure: 'Aug 2014 - Sep 2016',
+    place: 'Orofacial',
+    tenure:
+      'A visual desginer dsesign for a variety of platoforms, may include internet and internet sites, games, movies, kioasks and wearbies.',
     role: 'Visual Designer',
     detail:
       'A visual desginer dsesign for a variety of platoforms, may include internet and internet sites, games, movies, kioasks and wearbies. In short, they create the concepts',
   },
   {
     place: 'New Man Services',
-    tenure: 'Aug 2014 - Sep 2016',
+    tenure:
+      'A visual desginer dsesign for a variety of platoforms, may include internet and internet sites, games, movies, kioasks and wearbies.',
     role: 'UI/UX Designer',
     detail:
       'A visual desginer dsesign for a variety of platoforms, may include internet and internet sites, games, movies, kioasks and wearbies. In short, they create the concepts',
   },
   {
-    place: 'Global Solution',
-    tenure: 'Aug 2014 - Sep 2016',
-    role: 'Sr. Product Designer',
+    place: 'Rejuvenescimento Facial',
+    tenure:
+      'A visual desginer dsesign for a variety of platoforms, may include internet and internet sites, games, movies, kioasks and wearbies.',
+    role: 'Especialista em Harmonização Facial',
     detail:
       'A visual desginer dsesign for a variety of platoforms, may include internet and internet sites, games, movies, kioasks and wearbies. In short, they create the concepts',
   },
