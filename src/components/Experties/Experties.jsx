@@ -28,7 +28,7 @@ const Experties = () => {
                 </div>
                 <div>
                   <span>{exp.name}</span>
-                  <span className="secondaryText">{exp.projects} Projects</span>
+                  {/* <span className="secondaryText">{exp.ano} 2001</span> */}
                 </div>
               </motion.div>
             );
@@ -37,7 +37,7 @@ const Experties = () => {
 
         {/* right */}
         <motion.div variants={textVariant(0.5)} className={css.rightSide}>
-          <span className="primaryText">Minha História</span>
+          <span className="primaryText">História</span>
           {WhatDoIHelp.map((paragraph, i) => (
             <span className="secondaryText" key={i}>
               {paragraph}

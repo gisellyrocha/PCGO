@@ -1,23 +1,19 @@
-import { HiOutlineDesktopComputer } from 'react-icons/hi';
-import { CiMobile1 } from 'react-icons/ci';
-import { MdWorkspacesOutline } from 'react-icons/md';
+import { HiOfficeBuilding, HiOutlineAcademicCap } from 'react-icons/hi';
+import { MdOutlineBuildCircle, MdWorkspacesOutline } from 'react-icons/md';
 export const projectExperience = [
   {
-    name: 'Website Design',
-    projects: 76,
-    icon: HiOutlineDesktopComputer,
+    name: 'Formada em odontologia em 2001.',
+    icon: HiOutlineAcademicCap,
     bg: '#8ACDD7',
   },
   {
-    name: 'Mobile App Design',
-    projects: 63,
-    icon: CiMobile1,
+    name: 'Pós-Graduada em Harmonização em 2015.',
+    icon: HiOfficeBuilding,
     bg: '#FF90BC',
   },
   {
-    name: 'Brand Identity',
-    projects: 47,
-    icon: MdWorkspacesOutline,
+    name: 'Pós-Graduada em Ortodontia em 2018.',
+    icon: MdOutlineBuildCircle,
     bg: '#F9F9E0',
   },
 ];
