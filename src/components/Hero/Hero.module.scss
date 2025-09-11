@@ -1,92 +1,631 @@
 @import '../../styles/contants.scss';
 
 .wrapper {
-    overflow: hidden;
+  background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #0f0f0f 100%);
+  color: white;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
 
+  .backgroundElements {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 1;
 
-    .container {
-        position: relative;
-        z-index: 1;
+    .backgroundCircle1,
+    .backgroundCircle2,
+    .backgroundCircle3 {
+      position: absolute;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(139, 95, 189, 0.1) 0%, transparent 70%);
+    }
 
-        .upperElements {
-            @media (max-width: $sm) {
-                justify-content: center;
-                text-align: center;
-                gap: 2rem;
-            }
-            display: flex;
+    .backgroundCircle1 {
+      width: 600px;
+      height: 600px;
+      top: -200px;
+      right: -200px;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .backgroundCircle2 {
+      width: 400px;
+      height: 400px;
+      bottom: -100px;
+      left: -100px;
+      animation: float 8s ease-in-out infinite reverse;
+    }
+
+    .backgroundCircle3 {
+      width: 300px;
+      height: 300px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation: float 10s ease-in-out infinite;
+    }
+  }
+
+  .container {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+  }
+
+  .topBadge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    background: rgba(139, 95, 189, 0.2);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(139, 95, 189, 0.3);
+    border-radius: 50px;
+    padding: 0.8rem 2rem;
+    margin: 0 auto 3rem auto;
+    width: fit-content;
+    box-shadow: 0 8px 32px rgba(139, 95, 189, 0.2);
+
+    .badgeIcon {
+      color: #ffdfdf;
+      font-size: 1.2rem;
+    }
+
+    span {
+      font-weight: 600;
+      font-size: 1rem;
+      color: white;
+    }
+  }
+
+  .heroContent {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 4rem;
+    align-items: center;
+    margin-bottom: 4rem;
+
+    @media (max-width: $md) {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      text-align: center;
+    }
+
+    .leftContent {
+      .mainTitle {
+        font-size: 3.5rem;
+        font-weight: 800;
+        line-height: 1.1;
+        margin-bottom: 2rem;
+
+        .highlight {
+          color: #ffdfdf;
+          text-shadow: 0 0 30px rgba(139, 95, 189, 0.5);
+          display: inline-block;
+          margin-bottom: 0.5rem;
+        }
+
+        @media (max-width: $md) {
+          font-size: 2.8rem;
+        }
+
+        @media (max-width: $sm) {
+          font-size: 2.2rem;
+        }
+      }
+
+      .subtitle {
+        margin-bottom: 2.5rem;
+
+        .supportMessage {
+          display: flex;
+          align-items: flex-start;
+          gap: 1.5rem;
+          background: rgba(255, 255, 255, 0.05);
+          backdrop-filter: blur(10px);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          border-radius: 20px;
+          padding: 2rem;
+          border-left: 4px solid #8B5FBD;
+
+          @media (max-width: $md) {
+            flex-direction: column;
             align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
+            text-align: center;
+          }
+
+          .heartIcon {
+            color: #ff6b6b;
+            font-size: 2rem;
+            flex-shrink: 0;
+            margin-top: 0.5rem;
+            animation: heartbeat 2s ease-in-out infinite;
+          }
+
+          div {
+            strong {
+              display: block;
+              font-size: 1.3rem;
+              color: #ffdfdf;
+              margin-bottom: 0.8rem;
+            }
+
+            p {
+              font-size: 1.1rem;
+              line-height: 1.6;
+              color: #e0e0e0;
+              margin: 0;
+            }
+          }
+        }
+      }
+
+      .statsContainer {
+        display: flex;
+        gap: 2rem;
+        margin-bottom: 3rem;
+
+        @media (max-width: $md) {
+          justify-content: center;
         }
 
-
-        .lowerElements {
-            @media (max-width: $sm), (max-width: $md) {
-                margin-top: 4rem;
-                gap: 2rem;
-                justify-content: center;
-            }
-            margin-top: 12rem;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            .experience {
-                display: flex;
-                align-items: center;
-                gap: 1rem;
-                >:nth-child(2) {
-                    line-height: 25px;
-                }
-            }
-
-            .certificate {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-
-                img {
-                    margin-bottom: 1rem;
-                    width: 3.5rem;
-                }
-            }
+        @media (max-width: $sm) {
+          flex-direction: column;
+          gap: 1rem;
         }
 
-        .person {
-            @media (max-width: $sm ), (max-width: $md) {
-                position: relative;
-                left: 0;
-                background-size: 20rem;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                background-position: bottom;
-            }
-            position: absolute;
-            bottom: -2rem;
-            margin: auto;
-            background-image: url("../splash.png");
-            background-repeat: no-repeat;
-            background-size: 23rem;
-            left: 33%;
+        .statCard {
+          text-align: center;
+          background: rgba(139, 95, 189, 0.1);
+          border: 1px solid rgba(139, 95, 189, 0.2);
+          border-radius: 15px;
+          padding: 1.5rem 1rem;
+          min-width: 100px;
+          transition: all 0.3s ease;
 
-            img {
-                @media (max-width: $sm ) {
-                    width: 23rem;
-                }
-                margin-bottom: -5px;
-            }
+          &:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(139, 95, 189, 0.3);
+            border-color: rgba(139, 95, 189, 0.4);
+          }
+
+          .statNumber {
+            display: block;
+            font-size: 2.2rem;
+            font-weight: bold;
+            color: #ffdfdf;
+            line-height: 1;
+          }
+
+          .statLabel {
+            font-size: 0.9rem;
+            color: #c0c0c0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 0.5rem;
+          }
+        }
+      }
+
+      .actionButtons {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        margin-bottom: 2rem;
+        flex-wrap: wrap;
+
+        @media (max-width: $md) {
+          justify-content: center;
         }
 
-        .email {
-            @media (max-width: $sm ) {
-                position: relative;
-                display: none;
+        @media (max-width: $sm) {
+          flex-direction: column;
+          gap: 1.5rem;
+        }
+
+        .primaryBtn {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+          background: linear-gradient(135deg, #8B5FBD 0%, #9B6FCD 100%);
+          color: white;
+          padding: 1.2rem 2.5rem;
+          border: none;
+          border-radius: 50px;
+          font-size: 1.1rem;
+          font-weight: 600;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          box-shadow: 0 6px 20px rgba(139, 95, 189, 0.4);
+
+          &:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(139, 95, 189, 0.5);
+            background: linear-gradient(135deg, #9B6FCD 0%, #AB7FDD 100%);
+          }
+
+          .btnIcon {
+            animation: bounce 2s infinite;
+          }
+        }
+
+        .emergencyCard {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+          background: rgba(255, 107, 107, 0.1);
+          border: 1px solid rgba(255, 107, 107, 0.2);
+          border-radius: 20px;
+          padding: 1rem 1.8rem;
+          backdrop-filter: blur(10px);
+
+          .emergencyIcon {
+            color: #ff6b6b;
+            font-size: 1.3rem;
+          }
+
+          div {
+            .emergencyLabel {
+              display: block;
+              font-size: 0.8rem;
+              color: #c0c0c0;
+              text-transform: uppercase;
+              letter-spacing: 1px;
             }
+
+            .emergencyNumber {
+              display: block;
+              font-size: 1.4rem;
+              font-weight: bold;
+              color: #ff6b6b;
+            }
+          }
+        }
+      }
+
+      .contactInfo {
+        .emailLink {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.8rem;
+          color: #8B5FBD;
+          text-decoration: none;
+          font-size: 1.1rem;
+          font-weight: 500;
+          padding: 0.8rem 1.5rem;
+          border: 1px solid rgba(139, 95, 189, 0.2);
+          border-radius: 50px;
+          background: rgba(139, 95, 189, 0.05);
+          transition: all 0.3s ease;
+
+          &:hover {
+            background: rgba(139, 95, 189, 0.1);
+            border-color: rgba(139, 95, 189, 0.4);
+            transform: translateY(-2px);
+          }
+
+          .emailIcon {
+            font-size: 1rem;
+          }
+        }
+      }
+    }
+
+    .rightContent {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      align-items: center;
+
+      .brasaoContainer {
+        text-align: center;
+
+        .brasaoWrapper {
+          position: relative;
+          display: inline-block;
+          margin-bottom: 1.5rem;
+
+          .brasaoImage {
+            width: 300px;
+            height: auto;
+            filter: drop-shadow(0 10px 30px rgba(139, 95, 189, 0.3));
+            position: relative;
+            z-index: 2;
+
+            @media (max-width: $sm) {
+              width: 250px;
+            }
+          }
+
+          .brasaoGlow {
             position: absolute;
             top: 50%;
-            left: 0;
-            color: orange;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, rgba(139, 95, 189, 0.2) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: pulse 3s ease-in-out infinite;
+            z-index: 1;
+          }
         }
+
+        .pcgoLabel {
+          text-align: center;
+
+          span {
+            display: block;
+            font-size: 1rem;
+            color: #c0c0c0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 0.3rem;
+          }
+
+          strong {
+            display: block;
+            font-size: 1.3rem;
+            color: #ffdfdf;
+            font-weight: bold;
+          }
+        }
+      }
+
+      .infoCards {
+        width: 100%;
+        max-width: 350px;
+
+        .timeCard {
+          background: rgba(255, 255, 255, 0.1);
+          backdrop-filter: blur(15px);
+          border: 1px solid rgba(255, 255, 255, 0.2);
+          border-radius: 20px;
+          padding: 2rem;
+          text-align: center;
+          margin-bottom: 1.5rem;
+
+          .timeHeader {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            color: #c0c0c0;
+            font-size: 0.9rem;
+
+            .locationIcon {
+              color: #8B5FBD;
+            }
+          }
+
+          .currentTime {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #8B5FBD;
+            font-family: 'Courier New', monospace;
+            margin-bottom: 0.5rem;
+          }
+
+          .currentDate {
+            color: #e0e0e0;
+            font-size: 0.9rem;
+            text-transform: capitalize;
+          }
+        }
+
+        .locationCards {
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+
+          .locationCard {
+            background: rgba(139, 95, 189, 0.1);
+            border: 1px solid rgba(139, 95, 189, 0.2);
+            border-radius: 15px;
+            padding: 1.2rem;
+            transition: all 0.3s ease;
+            text-align: left;
+
+            &:hover {
+              transform: translateY(-2px);
+              border-color: rgba(139, 95, 189, 0.4);
+              box-shadow: 0 5px 15px rgba(139, 95, 189, 0.2);
+            }
+
+            h4 {
+              color: #ffdfdf;
+              font-size: 1rem;
+              margin-bottom: 0.5rem;
+              font-weight: 600;
+            }
+
+            p {
+              color: #e0e0e0;
+              font-size: 0.85rem;
+              margin-bottom: 0.5rem;
+              line-height: 1.4;
+            }
+
+            span {
+              color: #fff;
+              font-weight: 600;
+              font-size: 0.9rem;
+            }
+          }
+        }
+      }
     }
+  }
+
+  .scrollIndicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+    margin-top: 2rem;
+
+    .scrollMouse {
+      width: 24px;
+      height: 40px;
+      border: 2px solid #8B5FBD;
+      border-radius: 12px;
+      position: relative;
+
+      .scrollWheel {
+        width: 3px;
+        height: 6px;
+        background: #8B5FBD;
+        border-radius: 2px;
+        position: absolute;
+        top: 6px;
+        left: 50%;
+        transform: translateX(-50%);
+        animation: scroll 2s infinite;
+      }
+    }
+
+    span {
+      color: #c0c0c0;
+      font-size: 0.85rem;
+      text-align: center;
+    }
+
+    @media (max-width: $sm) {
+      display: none;
+    }
+  }
+
+  // Animações
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  @keyframes heartbeat {
+    0%, 50%, 100% {
+      transform: scale(1);
+    }
+    25%, 75% {
+      transform: scale(1.1);
+    }
+  }
+
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-3px);
+    }
+    60% {
+      transform: translateY(-2px);
+    }
+  }
+
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 0.3;
+      transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+      opacity: 0.1;
+      transform: translate(-50%, -50%) scale(1.1);
+    }
+  }
+
+  @keyframes scroll {
+    0% {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(-50%) translateY(15px);
+      opacity: 0;
+    }
+  }
+
+  // Responsividade adicional
+  @media (max-width: $sm) {
+    .topBadge {
+      padding: 0.6rem 1.5rem;
+      margin-bottom: 2rem;
+
+      span {
+        font-size: 0.9rem;
+      }
+    }
+
+    .heroContent {
+      .leftContent {
+        .supportMessage {
+          padding: 1.5rem;
+          gap: 1rem;
+
+          .heartIcon {
+            font-size: 1.5rem;
+          }
+
+          div {
+            strong {
+              font-size: 1.1rem;
+            }
+
+            p {
+              font-size: 1rem;
+            }
+          }
+        }
+
+        .statsContainer {
+          .statCard {
+            padding: 1rem 0.8rem;
+
+            .statNumber {
+              font-size: 1.8rem;
+            }
+          }
+        }
+
+        .actionButtons {
+          .primaryBtn {
+            padding: 1rem 2rem;
+            font-size: 1rem;
+          }
+
+          .emergencyCard {
+            padding: 0.8rem 1.5rem;
+          }
+        }
+      }
+
+      .rightContent {
+        .infoCards {
+          .timeCard {
+            padding: 1.5rem;
+
+            .currentTime {
+              font-size: 2rem;
+            }
+          }
+
+          .locationCards {
+            .locationCard {
+              padding: 1rem;
+            }
+          }
+        }
+      }
+    }
+  }
 }

@@ -1,63 +1,296 @@
 @import '../../styles/contants.scss';
 
-.wrapper{
-    background: white;
-    .container{
-        gap: 2rem;
-        @media (max-width: $sm) {
-            flex-direction: column;
-            gap: 2rem;
-            align-items: flex-start;
-        }
-        .left{
-            flex: 3;
-            >*{
-                display: block;
-            }
-            >:nth-child(2)
-            {
-                margin-top: 3rem;
+.wrapper {
+  background: black;
+  color: white;
+  position: relative;
+  overflow: hidden;
 
-                a{
-                    text-decoration: underline;
-                    color: orange;
-                }
-            }
-        }
-
-
-        .right{
-            flex: 1;
-            .info{
-                margin-bottom: 1rem;
-                >*{
-                    display: block;
-                }
-            }
-            .menu{
-                @media (max-width: $sm) {
-                    flex-direction: row;
-                    flex-wrap: wrap;
-                }
-                display: flex;
-                flex-direction: column;
-                gap: 2rem;
-                list-style: none;
-                li{
-                    cursor: pointer;
-                    &:hover{
-                        color: $secondary
-                    }
-                }
-            }
-        }
-    }
-    /* Adicione essas classes no arquivo Footer.module.scss */
-
-    .footerMessage {
-    text-align: center; /* Centraliza o texto */
-    margin-top: 20px;   /* Adiciona um espaçamento superior para afastar do conteúdo acima, ajuste conforme necessário */
+  // Efeito de ondas decorativas
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    
   }
 
-  
+  .container {
+    gap: 4rem;
+    padding-top: 3rem;
+    position: relative;
+    z-index: 2;
+
+    @media (max-width: $sm) {
+      flex-direction: column;
+      gap: 2rem;
+      align-items: stretch;
+      padding-top: 2rem;
+    }
+
+    .left {
+      flex: 2;
+      
+      .brandSection {
+        .logoContainer {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+          margin-bottom: 1.5rem;
+
+          .logo {
+            font-size: 2.5rem;
+            color: #ffdfdf;
+            filter: drop-shadow(0 2px 4px rgba(139, 95, 189, 0.3));
+          }
+
+          .brandName {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #ffdfdf;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+          }
+        }
+
+        .tagline {
+          display: block;
+          font-size: 1.3rem;
+          font-weight: 600;
+          color: #e8e8e8;
+          line-height: 1.6;
+          margin-bottom: 1rem;
+        }
+
+        .description {
+          color: #b8b8b8;
+          line-height: 1.7;
+          font-size: 1rem;
+          max-width: 400px;
+        }
+      }
+    }
+
+    .right {
+      flex: 1.5;
+      
+      .contactSection {
+        .sectionTitle {
+          font-size: 1.4rem;
+          font-weight: bold;
+          color: #ffdfdf;
+          margin-bottom: 1.5rem;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+        }
+
+        .locationCard {
+          background: rgba(255, 255, 255, 0.1);
+          backdrop-filter: blur(10px);
+          border: 1px solid rgba(255, 255, 255, 0.2);
+          border-radius: 15px;
+          padding: 1.5rem;
+          margin-bottom: 1.5rem;
+          transition: all 0.3s ease;
+
+          &:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(139, 95, 189, 0.15);
+            border-color: rgba(139, 95, 189, 0.3);
+          }
+
+          .locationHeader {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 1rem;
+
+            .locationIcon {
+              color: #ffdfdf;
+              font-size: 1.2rem;
+            }
+
+            .locationName {
+              font-weight: bold;
+              font-size: 1.1rem;
+              color: #fff;
+            }
+          }
+
+          .address {
+            color: #e0e0e0;
+            margin-bottom: 0.3rem;
+            font-size: 0.95rem;
+          }
+
+          .city {
+            color: #c0c0c0;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+          }
+
+          .phoneContainer {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: rgba(139, 95, 189, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            width: fit-content;
+
+            .phoneIcon {
+              color: #ffdfdf;
+              font-size: 0.9rem;
+            }
+
+            .phone {
+              color: #fff;
+              font-weight: 600;
+              font-size: 0.95rem;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .bottomSection {
+    margin-top: 3rem;
+    position: relative;
+    z-index: 2;
+
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent 0%, rgba(139, 95, 189, 0.5) 50%, transparent 100%);
+      margin-bottom: 2rem;
+    }
+
+    .footerBottom {
+      text-align: center;
+      padding-bottom: 1rem;
+
+      .footerMessage {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        font-size: 1rem;
+        color: #e8e8e8;
+        margin-bottom: 0.5rem;
+
+        .heart {
+          color: #ff6b6b;
+          font-size: 1rem;
+          animation: heartbeat 2s ease-in-out infinite;
+        }
+      }
+
+      .copyright {
+        color: #999;
+        font-size: 0.85rem;
+      }
+    }
+  }
+
+  // Animação do coração
+  @keyframes heartbeat {
+    0%, 50%, 100% {
+      transform: scale(1);
+    }
+    25%, 75% {
+      transform: scale(1.1);
+    }
+  }
+
+  // Responsividade mobile
+  @media (max-width: $sm) {
+    .container {
+      .left {
+        .brandSection {
+          text-align: center;
+
+          .logoContainer {
+            justify-content: center;
+            margin-bottom: 1rem;
+
+            .logo {
+              font-size: 2rem;
+            }
+
+            .brandName {
+              font-size: 1.6rem;
+            }
+          }
+
+          .tagline {
+            font-size: 1.1rem;
+            text-align: center;
+          }
+
+          .description {
+            text-align: center;
+            margin: 0 auto;
+          }
+        }
+      }
+
+      .right {
+        .contactSection {
+          .sectionTitle {
+            text-align: center;
+          }
+
+          .locationCard {
+            padding: 1.2rem;
+
+            .phoneContainer {
+              margin: 0 auto;
+            }
+          }
+        }
+      }
+    }
+
+    .bottomSection {
+      margin-top: 2rem;
+
+      .footerBottom {
+        .footerMessage {
+          font-size: 0.9rem;
+        }
+
+        .copyright {
+          font-size: 0.8rem;
+        }
+      }
+    }
+  }
+
+  // Responsividade para telas muito pequenas
+  @media (max-width: 480px) {
+    .container {
+      .right {
+        .contactSection {
+          .locationCard {
+            padding: 1rem;
+
+            .locationHeader {
+              flex-direction: column;
+              text-align: center;
+              gap: 0.5rem;
+
+              .locationName {
+                font-size: 1rem;
+              }
+            }
+
+            .phoneContainer {
+              justify-content: center;
+            }
+          }
+        }
+      }
+    }
+  }
 }

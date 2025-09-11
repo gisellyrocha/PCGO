@@ -1,0 +1,611 @@
+@import './../../styles/contants.scss';
+
+.wrapper {
+  position: relative;
+  background: linear-gradient(135deg, #ffdfdf 0%, #ffe8e8 50%, #fff2f2 100%);
+  min-height: 100vh;
+  overflow: hidden;
+  
+  .backgroundElements {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    
+    .backgroundShape1 {
+      position: absolute;
+      top: 10%;
+      right: 10%;
+      width: 300px;
+      height: 300px;
+      background: linear-gradient(45deg, rgba(255, 182, 193, 0.3), rgba(255, 192, 203, 0.2));
+      border-radius: 50%;
+      filter: blur(60px);
+      animation: float 6s ease-in-out infinite;
+    }
+    
+    .backgroundShape2 {
+      position: absolute;
+      bottom: 10%;
+      left: 5%;
+      width: 400px;
+      height: 400px;
+      background: linear-gradient(135deg, rgba(255, 160, 180, 0.2), rgba(255, 200, 210, 0.3));
+      border-radius: 50%;
+      filter: blur(80px);
+      animation: float 8s ease-in-out infinite reverse;
+    }
+    
+    .backgroundGradient {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 60%;
+      height: 60%;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+  }
+
+  .container {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .headerSection {
+    text-align: center;
+    max-width: 800px;
+    
+    .titleContainer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+      
+      .titleIcon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 80px;
+        height: 80px;
+        background: linear-gradient(135deg, #ff6b8a, #ff8fa3);
+        border-radius: 50%;
+        color: white;
+        font-size: 2rem;
+        box-shadow: 0 10px 30px rgba(255, 107, 138, 0.3);
+        
+        svg {
+          filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+        }
+      }
+      
+      .mainTitle {
+        font-size: 3rem;
+        font-weight: 700;
+        line-height: 1.2;
+        color: #2c3e50;
+        text-align: center;
+        margin: 0;
+        
+        .highlight {
+          background: linear-gradient(135deg, #ff6b8a, #ff8fa3);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          position: relative;
+          
+          &::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(135deg, #ff6b8a, #ff8fa3);
+            border-radius: 2px;
+          }
+        }
+        
+        @media (max-width: $md) {
+          font-size: 2.2rem;
+        }
+        
+        @media (max-width: $sm) {
+          font-size: 1.8rem;
+        }
+      }
+      
+      .subtitle {
+        font-size: 1.2rem;
+        color: #666;
+        line-height: 1.6;
+        text-align: center;
+        max-width: 600px;
+        
+        @media (max-width: $md) {
+          font-size: 1.1rem;
+        }
+      }
+    }
+  }
+
+  .videoSection {
+    width: 100%;
+    max-width: 400px; // Largura similar ao Instagram
+    margin: 0 auto;
+    
+    .reelsContainer {
+      background: #000;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      position: relative;
+      
+      .reelsHeader {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem;
+        background: linear-gradient(to bottom, rgba(0,0,0,0.7), transparent);
+        position: relative;
+        z-index: 10;
+        
+        .profileInfo {
+          display: flex;
+          align-items: center;
+          gap: 0.8rem;
+          
+          .profilePic {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid #ff6b8a;
+            
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
+          }
+          
+          .profileText {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            
+            .username {
+              color: white;
+              font-weight: 600;
+              font-size: 0.9rem;
+            }
+            
+            .verified {
+              color: #1da1f2;
+              font-size: 0.8rem;
+            }
+          }
+        }
+        
+        .followBtn {
+          background: transparent;
+          border: 1px solid white;
+          color: white;
+          padding: 0.4rem 1rem;
+          border-radius: 6px;
+          font-size: 0.85rem;
+          font-weight: 600;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          
+          &:hover {
+            background: white;
+            color: #000;
+          }
+        }
+      }
+      
+      .reelsVideoWrapper {
+        position: relative;
+        aspect-ratio: 9/16; // Proporção vertical do Instagram
+        background: #000;
+        
+        .reelsVideo {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
+        }
+        
+        .reelsOverlay {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          pointer-events: none;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          
+          .reelsSidebar {
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            pointer-events: auto;
+            
+            .actionBtn {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              gap: 0.3rem;
+              cursor: pointer;
+              transition: transform 0.2s ease;
+              
+              &:hover {
+                transform: scale(1.1);
+              }
+              
+              .actionIcon {
+                font-size: 1.8rem;
+                filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+              }
+              
+              .actionCount {
+                color: white;
+                font-size: 0.7rem;
+                font-weight: 600;
+                text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+              }
+            }
+          }
+          
+          .reelsBottom {
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            padding: 2rem 1rem 1rem;
+            color: white;
+            
+            .reelsCaption {
+              margin-bottom: 0.8rem;
+              
+              p {
+                margin: 0 0 0.5rem 0;
+                font-size: 0.9rem;
+                line-height: 1.4;
+                text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+              }
+              
+              .hashtags {
+                color: #87ceeb;
+                font-size: 0.85rem;
+                font-weight: 400;
+              }
+            }
+            
+            .audioInfo {
+              display: flex;
+              align-items: center;
+              gap: 0.5rem;
+              padding: 0.5rem 0;
+              border-top: 1px solid rgba(255,255,255,0.2);
+              
+              .musicIcon {
+                font-size: 0.9rem;
+              }
+              
+              .audioText {
+                font-size: 0.8rem;
+                opacity: 0.9;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+              }
+            }
+          }
+        }
+      }
+      
+      .reelsStats {
+        background: rgba(0,0,0,0.9);
+        padding: 0.8rem 1rem;
+        display: flex;
+        justify-content: space-around;
+        
+        .statItem {
+          display: flex;
+          align-items: center;
+          gap: 0.4rem;
+          color: rgba(255,255,255,0.8);
+          font-size: 0.8rem;
+          
+          .statIcon {
+            font-size: 0.9rem;
+          }
+        }
+      }
+    }
+    
+    @media (max-width: $md) {
+      max-width: 350px;
+      
+      .reelsContainer .reelsVideoWrapper {
+        aspect-ratio: 9/16;
+      }
+    }
+    
+    @media (max-width: $sm) {
+      max-width: 300px;
+      
+      .reelsContainer {
+        .reelsHeader {
+          padding: 0.8rem;
+          
+          .profileInfo .profilePic {
+            width: 30px;
+            height: 30px;
+          }
+          
+          .followBtn {
+            padding: 0.3rem 0.8rem;
+            font-size: 0.8rem;
+          }
+        }
+        
+        .reelsVideoWrapper .reelsOverlay {
+          .reelsSidebar {
+            right: 0.8rem;
+            gap: 1.2rem;
+            
+            .actionBtn .actionIcon {
+              font-size: 1.5rem;
+            }
+          }
+          
+          .reelsBottom {
+            padding: 1.5rem 0.8rem 0.8rem;
+            
+            .reelsCaption p {
+              font-size: 0.85rem;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .infoCards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    width: 100%;
+    margin-top: 2rem;
+    
+    .cardWrapper {
+      position: relative;
+      
+      .infoCard {
+        background: white;
+        padding: 2rem;
+        border-radius: 15px;
+        text-align: center;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        
+        &::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -100%;
+          width: 100%;
+          height: 3px;
+          background: linear-gradient(135deg, #ff6b8a, #ff8fa3);
+          transition: left 0.5s ease;
+        }
+        
+        &:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+          
+          &::before {
+            left: 0;
+          }
+        }
+        
+        .cardIcon {
+          width: 60px;
+          height: 60px;
+          background: linear-gradient(135deg, #ff6b8a, #ff8fa3);
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: white;
+          font-size: 1.5rem;
+          margin: 0 auto 1.5rem;
+          box-shadow: 0 8px 20px rgba(255, 107, 138, 0.3);
+          transition: transform 0.3s ease;
+        }
+        
+        h3 {
+          font-size: 1.3rem;
+          font-weight: 600;
+          color: #2c3e50;
+          margin-bottom: 1rem;
+        }
+        
+        p {
+          color: #666;
+          line-height: 1.6;
+          font-size: 1rem;
+          margin-bottom: 1.5rem;
+        }
+        
+        .saibaMaisBtn {
+          background: linear-gradient(135deg, #ff6b8a, #ff8fa3);
+          color: white;
+          border: none;
+          padding: 0.8rem 1.5rem;
+          border-radius: 25px;
+          font-size: 0.95rem;
+          font-weight: 500;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          margin: 0 auto;
+          
+          .arrow {
+            font-size: 0.8rem;
+            transition: transform 0.3s ease;
+            
+            &.rotated {
+              transform: rotate(180deg);
+            }
+          }
+          
+          &:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 107, 138, 0.4);
+          }
+        }
+      }
+      
+      .accordion {
+        max-height: 0;
+        overflow: hidden;
+        background: rgba(255, 107, 138, 0.05);
+        border-radius: 0 0 15px 15px;
+        transition: all 0.4s ease;
+        margin-top: -15px;
+        
+        &.expanded {
+          max-height: 500px;
+          border: 1px solid rgba(255, 107, 138, 0.2);
+          border-top: none;
+        }
+        
+        .accordionContent {
+          padding: 0;
+          transition: padding 0.3s ease;
+          
+          .detailItem {
+            color: #444;
+            line-height: 1.6;
+            font-size: 0.95rem;
+            margin-bottom: 0.8rem;
+            padding: 0 1rem;
+            text-align: left;
+            
+            &:first-child {
+              padding-top: 1.5rem;
+              font-weight: 600;
+              color: #ff6b8a;
+            }
+            
+            &:last-child {
+              margin-bottom: 0;
+              padding-bottom: 1.5rem;
+            }
+            
+            // Estilo para itens com bullets
+            &:not(:first-child) {
+              &:before {
+                content: '';
+                display: inline-block;
+                width: 4px;
+                height: 4px;
+                background: #ff6b8a;
+                border-radius: 50%;
+                margin-right: 0.8rem;
+                vertical-align: middle;
+              }
+            }
+          }
+        }
+        
+        &.expanded .accordionContent {
+          padding: 0;
+        }
+      }
+    }
+
+    
+    
+    @media (max-width: $md) {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      
+      .cardWrapper .infoCard {
+        padding: 1.5rem;
+      }
+    }
+  }
+
+  .ctaSection {
+    text-align: center;
+    margin-top: 3rem;
+    
+    .ctaText {
+      font-size: 1.2rem;
+      color: #666;
+      margin-bottom: 1.5rem;
+    }
+    
+    .ctaButton {
+      background: linear-gradient(135deg, #ff6b8a, #ff8fa3);
+      color: white;
+      border: none;
+      padding: 1rem 2.5rem;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 25px rgba(255, 107, 138, 0.3);
+      
+      &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 35px rgba(255, 107, 138, 0.4);
+      }
+      
+      &:active {
+        transform: translateY(-1px);
+      }
+    }
+  }
+}
+
+// Animações
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.1;
+  }
+}
