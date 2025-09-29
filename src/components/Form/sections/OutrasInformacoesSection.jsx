@@ -13,12 +13,13 @@ const OutrasInformacoesSection = ({ formData, updateFormData, errors }) => {
       <div className={css.fieldGroup}>
         <label>
           1. Você considera que mora em bairro, comunidade, área rural ou local
-          de risco de violência?
+          de risco de violência? *
         </label>
         <select
           name="moraEmLocalDeRisco"
           value={formData.moraEmLocalDeRisco || ''}
           onChange={handleChange}
+          required
         >
           <option value="">Selecione</option>
           <option value="sim">Sim</option>
@@ -32,7 +33,7 @@ const OutrasInformacoesSection = ({ formData, updateFormData, errors }) => {
 
       <div className={css.fieldGroup}>
         <label>
-          2. Você se considera dependente financeiramente do agressor?
+          2. Você se considera dependente financeiramente do agressor? *
         </label>
         <div className={css.radioGroup}>
           <label>
@@ -42,6 +43,7 @@ const OutrasInformacoesSection = ({ formData, updateFormData, errors }) => {
               value="sim"
               checked={formData.dependenteFinanceira === 'sim'}
               onChange={handleChange}
+              required
             />
             Sim
           </label>
@@ -52,6 +54,7 @@ const OutrasInformacoesSection = ({ formData, updateFormData, errors }) => {
               value="nao"
               checked={formData.dependenteFinanceira === 'nao'}
               onChange={handleChange}
+              required
             />
             Não
           </label>
@@ -62,7 +65,7 @@ const OutrasInformacoesSection = ({ formData, updateFormData, errors }) => {
       </div>
 
       <div className={css.fieldGroup}>
-        <label>3. Você quer e aceita abrigamento temporário?</label>
+        <label>3. Você quer e aceita abrigamento temporário? *</label>
         <div className={css.radioGroup}>
           <label>
             <input
@@ -71,6 +74,7 @@ const OutrasInformacoesSection = ({ formData, updateFormData, errors }) => {
               value="sim"
               checked={formData.querAbrigo === 'sim'}
               onChange={handleChange}
+              required
             />
             Sim
           </label>
@@ -81,6 +85,7 @@ const OutrasInformacoesSection = ({ formData, updateFormData, errors }) => {
               value="nao"
               checked={formData.querAbrigo === 'nao'}
               onChange={handleChange}
+              required
             />
             Não
           </label>
@@ -93,7 +98,7 @@ const OutrasInformacoesSection = ({ formData, updateFormData, errors }) => {
       <div className={css.fieldGroup}>
         <label>
           4. Você possui alguma deficiência ou é portadora de doença
-          degenerativa que acarrete vulnerabilidade física ou mental?
+          degenerativa que acarrete vulnerabilidade física ou mental? *
         </label>
         <div className={css.radioGroup}>
           <label>
@@ -103,6 +108,7 @@ const OutrasInformacoesSection = ({ formData, updateFormData, errors }) => {
               value="sim"
               checked={formData.vitimaDeficiente === 'sim'}
               onChange={handleChange}
+              required
             />
             Sim
           </label>
@@ -113,6 +119,7 @@ const OutrasInformacoesSection = ({ formData, updateFormData, errors }) => {
               value="nao"
               checked={formData.vitimaDeficiente === 'nao'}
               onChange={handleChange}
+              required
             />
             Não
           </label>
@@ -127,19 +134,24 @@ const OutrasInformacoesSection = ({ formData, updateFormData, errors }) => {
           <input
             type="text"
             name="descricaoDeficiencia"
-            placeholder="Descreva a deficiência"
+            placeholder="Descreva a deficiência *"
             value={formData.descricaoDeficiencia || ''}
             onChange={handleChange}
+            required
           />
+          {errors.descricaoDeficiencia && (
+            <span className={css.error}>{errors.descricaoDeficiencia}</span>
+          )}
         </div>
       )}
 
       <div className={css.fieldGroup}>
-        <label>5. Com qual cor/raça você se identifica?</label>
+        <label>5. Com qual cor/raça você se identifica? *</label>
         <select
           name="corRaca"
           value={formData.corRaca || ''}
           onChange={handleChange}
+          required
         >
           <option value="">Selecione</option>
           <option value="branca">Branca</option>

@@ -777,3 +777,46 @@ textarea {
   transition: transform 0.1s ease;
 }
 
+.required {
+  color: #e74c3c;
+}
+
+.helper {
+  color: #666;
+  font-size: 0.85em;
+  margin-top: 4px;
+  display: block;
+}
+
+.infoBox {
+  background-color: #e8f4f8;
+  border: 1px solid #b8daff;
+  border-radius: 4px;
+  padding: 12px;
+  margin-bottom: 20px;
+  
+  p {
+    margin: 0;
+    color: #31708f;
+    font-size: 0.9em;
+  }
+}
+
+.warningBox {
+  background-color: #fff3cd;
+  border: 1px solid #ffeaa7;
+  border-radius: 4px;
+  padding: 12px;
+  margin-top: 20px;
+  
+  p {
+    margin: 0;
+    color: #856404;
+    font-size: 0.9em;
+  }
+}
+
+.fieldError {
+  border-color: #e74c3c !important;
+  box-shadow: 0 0 0 2px rgba(231, 76, 60, 0.2);
+}

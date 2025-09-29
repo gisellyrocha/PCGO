@@ -73,8 +73,8 @@ const Footer = () => {
         <div className={css.divider}></div>
         <div className={css.footerBottom}>
           <p className={css.footerMessage}>
-            Feito com <FaHeart className={css.heart} /> pela Escrivã de Polícia
-            Giselly Rocha.
+            Feito com <FaHeart className={css.heart} /> pela Equipe Deaem
+            Estendida.
           </p>
           <p className={css.copyright}>
             © 2025 Polícia Civil do Estado de Goiás. Todos os direitos
